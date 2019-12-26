@@ -37,4 +37,4 @@ The future of this project is uncertain, so feel free to ask me about it/make su
 
 Please feel free to use some or all of my code, as I would hate to force someone else to reprogram the whole thing. (Do credit me though)
 
-The next steps for me are probably making a turning animation, and exploring solving algorithms (both human ones and maybe trying to find the fasted/most direct path to the solved state) 
+The next steps for me are probably making a turning animation, and exploring solving algorithms (both human ones and maybe trying to find the fastest/most direct path to the solved state) 
