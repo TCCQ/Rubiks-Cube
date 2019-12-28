@@ -1,4 +1,4 @@
-import java.io.FileWriter;
+import java.io.*;
 
 class CubeObj{
 	/*
@@ -66,7 +66,6 @@ class CubeObj{
 	
 	/**
 	* Writes the complete cube state out as string to file.
-	* note: file must already exist for this to work
 	* should be in the same directory
 	* TOTEST: define filepath in filename?
 	* for use with still visualization code (Visualize.pde)
@@ -84,6 +83,35 @@ class CubeObj{
 			out.close();
 		} catch (Exception e){
 			System.out.println("Something went wrong (CubeObj line 86)");
+		}
+	}
+	
+	/**
+	* For importing a cube state from a file, see exportState(filename).
+	*/
+	public void importState(String filename){
+		try {
+			FileInputStream in = new FileInputStream(filename);
+			
+			int data = in.read();
+			String state = "";
+			while (data != -1){
+				state += (char)data;
+				data = in.read();
+			}
+			
+			int pointer = 0;
+			for (int x = 0; x < 3; x++){
+				for (int y = 0; y <3; y++){
+					for (int z = 0; z < 3; z++){
+						this.setBlock(x,y,z, state.substring(pointer, pointer+3));
+						pointer += 3;
+					}
+				}
+			}
+			
+		} catch (Exception e){
+			System.out.println("Something went wrong (CubeObj line 114)");
 		}
 	}
 	

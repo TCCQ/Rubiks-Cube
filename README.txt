@@ -24,9 +24,9 @@ Interactive.pde creates a solved cube that the user can mess around with. This i
 
 CubeObj.java has what I imagine most people are interested in, which is the data structure and some methods to control it (and scramble and whatnot)
 
-The visualize folder is for creating renders of a still cube. It is *not* interactive. Because processing is annoying, it has to be in a different folder than Tnteractive.pde, but they both need to be in the same folder as CubeObj.java, hence the duplicate. 
+The visualize folder is for creating renders of a still cube. It is *not* interactive. Because processing is annoying, it has to be in a different folder than Interactive.pde, but they both need to be in the same folder as CubeObj.java, hence the duplicate. 
 
-Using Visualize.pde is a pain, and I am working to streamline the process. The basics are, when you have done whatever it is you want to do to your cube, create and empty text file, call cube.exportState(The name of the file you just made) This writes out the cube state in a very basic way, but it’s the best way I could come up with to make processing and java talk the way I wanted. Next, call Visualize.pde *from the command line* and pass it the text file as its sole argument.
+Using Visualize.pde is a pain, and I am working to streamline the process. The basics are, when you have done whatever it is you want to do to your cube,  call cube.exportState(filename) This writes out the cube state in a very basic way, but it’s the best way I could come up with to make processing and java talk the way I wanted. Next, call Visualize.pde *from the command line* and pass it the text file as its sole argument. *All paths should be absolute, as it prevents java from try to search in the “user.dir” directory, which since it is being called by processing, is in the middle of nowhere.
 
 This is a huge pain, I know
 

@@ -9,7 +9,7 @@ the purpose of this code is to visualize cube states made in a seperate java cod
 THIS CODE MUST BE RUN FROM THE COMMAND LINE
 
 it takes 1 argument, the *full* path of the text file of the cube state
-this file must be created by hand, but populated with cube.exportState(filename)
+this file must be populated with cube.exportState(filename)
 Processing is a pain, so this and Interactive cannot exist in the same folder, because they conflict(?)
 but they both need to be in the same folder as CubeObj.java
 so have fun working out that one
@@ -39,33 +39,7 @@ void setup(){
   cam.setSuppressRollRotationMode();
   cam.rotateY(PI);
   
- 
-  String content = "";
-  try {
-    InputStream input = createInput(args[0]);
-    int data = input.read();
-    
-    while (data != -1){
-      content += (char)data;
-      data = input.read();
-    }
-    input.close();
-  } catch (Exception e ){
-    System.out.println("Something went wrong (Visualize line 29)");
-  }
-  System.out.print("content = ");
-  System.out.println(content);
-  
-  int counter = 0;
-  for (int x = 0; x < 3; x++){
-    for (int y = 0; y < 3; y++){
-      for (int z = 0; z < 3; z++){
-        cube.setBlock(x,y,z, content.substring(counter, counter+3));
-        counter += 3;
-      }
-    }
-  }
-  
+  cube.importState(args[0]);
 }
 
 /*
